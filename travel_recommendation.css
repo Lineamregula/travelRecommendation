@@ -52,7 +52,7 @@ nav {
     text-decoration: none;
     color: #ffffff;
     font-weight: bold;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
   }
 
 
@@ -62,12 +62,14 @@ nav {
         color: #ffffff;
         font-weight: bold;
         margin-bottom: 20px;
+        padding-left: 5%;
     }
     p {
         text-decoration: none;
         color: #ffffff;
         font-weight: normal;
-        margin-bottom: 20px;
+        margin-bottom: 15px;
+        padding-left: 5%;
     }
   
   div {
@@ -122,6 +124,120 @@ nav {
   #result img{
     width: 200px;
     height: 100px;
-  }
+}
+
+/* General Reset */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+  /* Social Media Sidebar */
+.social-sidebar {
+    position: fixed; /* Fix the sidebar on the screen */
+    top: 50%; /* Center vertically */
+    left: 0; /* Align to the left of the screen */
+    transform: translateY(-50%); /* Adjust centering */
+    display: flex;
+    flex-direction: column; /* Stack icons vertically */
+    z-index: 1000; /* Ensure it's on top */
+}
+
+/* Style each social media link */
+.social-sidebar a {
+    text-align: center;
+    padding: 15px;
+    margin: 5px 0;
+    color: white;
+    text-decoration: none;
+    transition: background 0.3s ease;
+    font-size: 20px;
+    border-radius: 0 5px 5px 0;
+}
+
+/* Facebook */
+.social-sidebar a.facebook {
+    background: #2a6dff;
+}
+.social-sidebar a.facebook:hover {
+    background: #334d84;
+}
+
+/* Twitter */
+.social-sidebar a.twitter {
+    background: #1da1f2;
+}
+.social-sidebar a.twitter:hover {
+    background: #1a91da;
+}
+
+/* Instagram */
+.social-sidebar a.instagram {
+    background: #e4405f;
+}
+.social-sidebar a.instagram:hover {
+    background: #d52e50;
+}
+
+/* General Reset */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* Team Section */
+.team-section {
+    text-align: center;
+    padding: 50px 0;
+    background-color: #f7f7f7;
+}
+
+.team-section h1 {
+    font-size: 36px;
+    margin-bottom: 40px;
+}
+
+/* Team Container */
+.team-container {
+    display: flex;
+    justify-content: left;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+/* Team Member Card */
+.team-member {
+    background-color: rgb(0, 0, 0);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    text-align: center;
+}
+
+.team-member img {
+    width: 100%;
+    border-radius: 50%;
+    margin-bottom: 20px;
+}
+
+.team-member h2 {
+    font-size: 24px;
+    margin: 10px 0;
+}
+
+.team-member p {
+    font-size: 16px;
+    color: #666;
+}
 
 
+/* Responsive Design */
+@media (max-width: 768px) {
+    .team-container {
+        flex-direction: row;
+        align-items: center;
+    }
+}
