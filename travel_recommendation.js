@@ -1,33 +1,67 @@
 const btnSearch = document.getElementById('btnSearch');
 
-function searchCondition() {
-    const input = document.getElementById('conditionInput').value.toLowerCase();
-    const resultDiv = document.getElementById('result');
+function searchName() {
+    const input = document.getElementById('nameInput').value.toLowerCase();
+    const resultDiv = document.getElementById('result'); // Use a separate div to display results
     resultDiv.innerHTML = '';
 
     fetch('travel_recommendation_api.json')
       .then(response => response.json())
       .then(data => {
-        const condition = data.conditions.find(item => item.name.toLowerCase() === input);
+        let found = false;
 
-        if (condition) {
-          const beaches = condition.beaches.join(', ');
-          const temples = condition.temples.join(', ');
-          const countries = condition.countries;
+        // Search Countries
+        data.countries.forEach(country => {
+            country.cities.forEach(city => {
+                if (city.name.toLowerCase().includes(input)) {
+                    found = true;
+                    resultDiv.innerHTML += `<h2>${city.name}</h2>`;
+                    resultDiv.innerHTML += `<img src="${city.imageUrl}" alt="${city.name}">`;
+                    resultDiv.innerHTML += `<p>${city.description}</p>`;
+                }
+            });
+        }); 
 
-          resultDiv.innerHTML += `<h2>${condition.name}</h2>`;
-          resultDiv.innerHTML += `<img src="${condition.imagesrc}" alt="hjh">`;
+        // Search in temples
+        data.temples.forEach(temple => {
+            if (temple.type.toLowerCase().includes(input)) {
+                found = true;
+                resultDiv.innerHTML += `<h2>${temple.name}</h2>`;
+                resultDiv.innerHTML += `<img src="${temple.imageUrl}" alt="${temple.name}">`;
+                resultDiv.innerHTML += `<p>${temple.description}</p>`;
+            } else {
+            if (temple.name.toLowerCase().includes(input)) {
+                found = true;
+                resultDiv.innerHTML += `<h2>${temple.name}</h2>`;
+                resultDiv.innerHTML += `<img src="${temple.imageUrl}" alt="${temple.name}">`;
+                resultDiv.innerHTML += `<p>${temple.description}</p>`;
+            }}
+        });
 
-          resultDiv.innerHTML += `<p><strong>Symptoms:</strong> ${beaches}</p>`;
-          resultDiv.innerHTML += `<p><strong>Prevention:</strong> ${temples}</p>`;
-          resultDiv.innerHTML += `<p><strong>Treatment:</strong> ${countries}</p>`;
-        } else {
-          resultDiv.innerHTML = 'Condition not found.';
+        // Search in beaches
+        data.beaches.forEach(beach => {
+            if (beach.type.toLowerCase().includes(input)) {
+                found = true;
+                resultDiv.innerHTML += `<h2>${beach.name}</h2>`;
+                resultDiv.innerHTML += `<img src="${beach.imageUrl}" alt="${beach.name}">`;
+                resultDiv.innerHTML += `<p>${beach.description}</p>`;
+            } else {
+            if (beach.name.toLowerCase().includes(input)) {
+                found = true;
+                resultDiv.innerHTML += `<h2>${beach.name}</h2>`;
+                resultDiv.innerHTML += `<img src="${beach.imageUrl}" alt="${beach.name}">`;
+                resultDiv.innerHTML += `<p>${beach.description}</p>`;
+            }}
+        });
+
+        if (!found) {
+            resultDiv.innerHTML = 'Location not found.';
         }
-      })
-      .catch(error => {
+    })
+    .catch(error => {
         console.error('Error:', error);
         resultDiv.innerHTML = 'An error occurred while fetching data.';
-      });
-  }
-    btnSearch.addEventListener('click', searchCondition);
+    });
+}
+
+btnSearch.addEventListener('click', searchName);
