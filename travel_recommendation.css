@@ -1,4 +1,4 @@
-/* Basic CSS for the navigation bar */
+/*CSS for the navigation bar */
 
 *{
     margin: 0;
@@ -16,7 +16,6 @@ nav {
   
   nav ul {
     list-style-type: none;
-    /* padding: 0; */
   }
   
   nav ul li {
@@ -32,19 +31,13 @@ nav {
     padding-right: 40px;
     }
   
-  /* Basic CSS for the form elements */
+  
   body {
     font-family: Arial, sans-serif;
-    /* margin: 20px; */
-    /* mask-image: linear-gradient(to right, #080803, rgba(255, 255, 255, 0.514) 450px);*/
     background-image: url('\vancPhoto.png');  
-    background-size: cover; /* Scale the image to cover the entire page */
-    background-repeat: no-repeat; /* Prevent the image from repeating */
+    background-size: cover; 
+    background-repeat: no-repeat; 
     background-position: top center;
-    
-
-    
-    
 
   }
   
@@ -54,8 +47,6 @@ nav {
     font-weight: bold;
     margin-bottom: 10px;
   }
-
-
 
     h2 {
         text-decoration: none;
@@ -101,10 +92,9 @@ nav {
     
   }
   
-  /* Basic CSS for the report section */
   h2 {
-
     margin-top: 50px;
+    word-wrap: break-word;
     
   }
   
@@ -116,6 +106,7 @@ nav {
 #result{
   height: 400px;
   width: 500px;
+  border: 2px black;
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -126,25 +117,23 @@ nav {
     height: 100px;
 }
 
-/* General Reset */
 body, html {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
 }
 
-  /* Social Media Sidebar */
+
 .social-sidebar {
-    position: fixed; /* Fix the sidebar on the screen */
-    top: 50%; /* Center vertically */
-    left: 0; /* Align to the left of the screen */
-    transform: translateY(-50%); /* Adjust centering */
+    position: fixed; 
+    top: 50%; 
+    left: 0; 
+    transform: translateY(-50%); 
     display: flex;
-    flex-direction: column; /* Stack icons vertically */
-    z-index: 1000; /* Ensure it's on top */
+    flex-direction: column; 
+    z-index: 1000; 
 }
 
-/* Style each social media link */
 .social-sidebar a {
     text-align: center;
     padding: 15px;
@@ -156,7 +145,7 @@ body, html {
     border-radius: 0 5px 5px 0;
 }
 
-/* Facebook */
+
 .social-sidebar a.facebook {
     background: #2a6dff;
 }
@@ -164,7 +153,7 @@ body, html {
     background: #334d84;
 }
 
-/* Twitter */
+
 .social-sidebar a.twitter {
     background: #1da1f2;
 }
@@ -172,7 +161,7 @@ body, html {
     background: #1a91da;
 }
 
-/* Instagram */
+
 .social-sidebar a.instagram {
     background: #e4405f;
 }
@@ -180,14 +169,13 @@ body, html {
     background: #d52e50;
 }
 
-/* General Reset */
 body, html {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
 }
 
-/* Team Section */
+
 .team-section {
     text-align: center;
     padding: 50px 0;
@@ -199,7 +187,7 @@ body, html {
     margin-bottom: 40px;
 }
 
-/* Team Container */
+
 .team-container {
     display: flex;
     justify-content: left;
@@ -207,7 +195,7 @@ body, html {
     gap: 30px;
 }
 
-/* Team Member Card */
+
 .team-member {
     background-color: rgb(0, 0, 0);
     padding: 20px;
@@ -234,7 +222,6 @@ body, html {
 }
 
 
-/* Responsive Design */
 @media (max-width: 768px) {
     .team-container {
         flex-direction: row;

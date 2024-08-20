@@ -1,8 +1,10 @@
 const btnSearch = document.getElementById('btnSearch');
+const btnReset = document.getElementById('btnReset');
+const resultDiv = document.getElementById('result'); 
 
 function searchName() {
     const input = document.getElementById('nameInput').value.toLowerCase();
-    const resultDiv = document.getElementById('result'); // Use a separate div to display results
+    const resultDiv = document.getElementById('result'); 
     resultDiv.innerHTML = '';
 
     fetch('travel_recommendation_api.json')
@@ -64,4 +66,11 @@ function searchName() {
     });
 }
 
+function resetForm() {
+    document.getElementById("nameInput").value = "";
+    document.getElementById("result").value = "";
+    resultDiv.innerHTML = '';
+    }
+
 btnSearch.addEventListener('click', searchName);
+btnReset.addEventListener('click', resetForm);
